@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "wonhyeong-lee",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Wonhyeong Lee <kkwon9607@gmail.com>",
   "dependencies": {
     "gatsby": "^4.21.1",
     "gatsby-plugin-image": "^2.21.0",
