@@ -67,3 +67,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+#eslint, prettier
+.eslintrc.json
+.eslintignore
+.prettierignore
+.prettierrc
