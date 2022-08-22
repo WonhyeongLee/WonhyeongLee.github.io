@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkwonhyeong_lee=self.webpackChunkwonhyeong_lee||[]).push([[691],{4276:function(e,n,t){t.r(n),t.d(n,{default:function(){return c}});var u=t(7294),r=function(e){var n=e.text;return u.createElement("div",null,n)},c=function(){return u.createElement(r,{text:"Home"})}}}]);
+//# sourceMappingURL=component---src-pages-index-tsx-9b4c74e4f09b6cb9ebbd.js.map
