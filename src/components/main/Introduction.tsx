@@ -19,6 +19,7 @@ const Wrapper = styled.div`
 `
 
 const SubTitle = styled.div`
+  margin-top: 5px;
   font-size: 20px;
   font-weight: 400;
 `
