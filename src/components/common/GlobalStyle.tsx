@@ -13,7 +13,6 @@ const defaultStyle = css`
   body,
   div #___gatsby {
     height: 100%;
-    color: red;
   }
 
   a,
