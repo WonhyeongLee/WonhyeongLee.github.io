@@ -36,8 +36,24 @@ module.exports = {
         path: `${__dirname}/contents`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/static`,
+      },
+    },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: ['auto', 'webp'],
+          quality: 100,
+          placeholder: 'blurred',
+        },
+      },
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-transformer-remark`,

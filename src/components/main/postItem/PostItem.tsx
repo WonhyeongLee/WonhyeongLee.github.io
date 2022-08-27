@@ -18,12 +18,14 @@ const PostItem: React.FC<PostItemProps> = ({
   date,
   categories,
   summary,
-  thumbnail: { publicURL },
+  thumbnail: {
+    childImageSharp: { gatsbyImageData },
+  },
   link,
 }) => {
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage src={publicURL} alt="Post Item Image" />
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
       <PostItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>
