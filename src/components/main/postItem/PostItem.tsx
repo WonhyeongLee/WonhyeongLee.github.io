@@ -9,17 +9,9 @@ import {
   CategoryItem,
   Summary,
 } from './PostItem.style'
+import { PostFrontmatterType } from 'types/PostItem.types'
 
-type PostItemProps = {
-  title: string
-  date: string
-  categories: string[]
-  summary: string
-  thumbnail: {
-    publicURL: string
-  }
-  link: string
-}
+type PostItemProps = PostFrontmatterType & { link: string }
 
 const PostItem: React.FC<PostItemProps> = ({
   title,

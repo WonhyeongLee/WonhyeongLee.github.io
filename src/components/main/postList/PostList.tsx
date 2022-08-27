@@ -1,29 +1,17 @@
 import React from 'react'
 import { PostListWrapper } from './PostList.style'
 import PostItem from 'components/main/postItem/PostItem'
+import { PostListItemType } from 'types/PostItem.types'
 
-export type PostType = {
-  node: {
-    id: string
-    frontmatter: {
-      title: string
-      summary: string
-      date: string
-      categories: string[]
-      thumbnail: {
-        publicURL: string
-      }
-    }
-  }
-}
+// 기존에 정의했던 PostListItemType 삭제
 type PostListProps = {
-  posts: PostType[]
+  posts: PostListItemType[]
 }
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
   return (
     <PostListWrapper>
-      {posts.map(({ node: { id, frontmatter } }: PostType) => (
+      {posts.map(({ node: { id, frontmatter } }: PostListItemType) => (
         <PostItem {...frontmatter} link="https://www.google.co.kr/" key={id} />
       ))}
     </PostListWrapper>

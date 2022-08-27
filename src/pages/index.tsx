@@ -5,8 +5,8 @@ import GlobalStyle from 'components/common/GlobalStyle'
 import Introduction from 'components/main/Introduction'
 import Footer from 'components/common/footer/Footer'
 import CategoryList from 'components/main/CategoryList'
-import PostList, { PostType } from 'components/main/postList/PostList'
-
+import PostList from 'components/main/postList/PostList'
+import { PostListItemType } from 'types/PostItem.types'
 const CATEGORY_LIST = {
   All: 5,
   Web: 3,
@@ -16,7 +16,7 @@ const CATEGORY_LIST = {
 type IndexPageProps = {
   data: {
     allMarkdownRemark: {
-      edges: PostType[]
+      edges: PostListItemType[]
     }
   }
 }
