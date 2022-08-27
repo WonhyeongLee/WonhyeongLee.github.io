@@ -1,14 +1,11 @@
 import styled from '@emotion/styled'
-import React from 'react'
-import ProfileImage from './ProfileImage'
 
-const Background = styled.div`
+export const Background = styled.div`
   width: 100%;
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   color: #ffffff;
 `
-
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,8 +20,7 @@ const Wrapper = styled.div`
     padding: 0 20px;
   }
 `
-
-const SubTitle = styled.div`
+export const SubTitle = styled.div`
   margin-top: 5px;
   font-size: 20px;
   font-weight: 400;
@@ -32,8 +28,7 @@ const SubTitle = styled.div`
     font-size: 15px;
   }
 `
-
-const Title = styled.div`
+export const Title = styled.div`
   margin-top: 5px;
   font-size: 35px;
   font-weight: 700;
@@ -41,18 +36,3 @@ const Title = styled.div`
     font-size: 25px;
   }
 `
-const Introduction: React.FC = () => {
-  return (
-    <Background>
-      <Wrapper>
-        <ProfileImage />
-        <div>
-          <SubTitle>Nice to meet you</SubTitle>
-          <Title>주니어개발자 이원형입니다.</Title>
-        </div>
-      </Wrapper>
-    </Background>
-  )
-}
-
-export default Introduction
