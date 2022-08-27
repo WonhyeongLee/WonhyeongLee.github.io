@@ -2,25 +2,30 @@ import React from 'react'
 import { PostListWrapper } from './PostList.style'
 import PostItem from 'components/main/postItem/PostItem'
 
-// 테스트를 위한 임의 데이터
-const POST_ITEM_DATA = {
-  title: 'Post Item Title',
-  date: '2020.01.29.',
-  categories: ['Web', 'Frontend', 'Testing'],
-  summary:
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat doloremque fugit quis rem temporibus! Maxime molestias, suntrem debitis odit harum impedit. Modi cupiditate harum dignissimos eos in corrupti!',
-  thumbnail: 'http://placeimg.com/640/480/nature',
-  // 이동하고자하는 경로
-  link: 'https://www.google.co.kr/',
+export type PostType = {
+  node: {
+    id: string
+    frontmatter: {
+      title: string
+      summary: string
+      date: string
+      categories: string[]
+      thumbnail: {
+        publicURL: string
+      }
+    }
+  }
+}
+type PostListProps = {
+  posts: PostType[]
 }
 
-const PostList: React.FC = () => {
+const PostList: React.FC<PostListProps> = ({ posts }) => {
   return (
     <PostListWrapper>
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
-      <PostItem {...POST_ITEM_DATA} />
+      {posts.map(({ node: { id, frontmatter } }: PostType) => (
+        <PostItem {...frontmatter} link="https://www.google.co.kr/" key={id} />
+      ))}
     </PostListWrapper>
   )
 }
