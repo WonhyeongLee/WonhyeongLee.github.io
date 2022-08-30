@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/common/GlobalStyle'
@@ -9,11 +9,6 @@ import PostList from 'components/main/postList/PostList'
 import { PostListItemType } from 'types/PostItem.types'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import queryString, { ParsedQuery } from 'query-string'
-const CATEGORY_LIST = {
-  All: 5,
-  Web: 3,
-  Mobile: 2,
-}
 
 type IndexPageProps = {
   location: {
@@ -49,15 +44,40 @@ const IndexPage: React.FC<IndexPageProps> = function ({
     typeof parsed.category !== 'string' || !parsed.category
       ? 'All'
       : parsed.category
+
+  const categoryList = useMemo(
+    () =>
+      edges.reduce(
+        (
+          list: CategoryListProps['categoryList'],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: PostType,
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1
+            else list[category]++
+          })
+
+          list['All']++
+
+          return list
+        },
+        { All: 0 },
+      ),
+    [],
+  )
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
-        categoryList={CATEGORY_LIST}
+        categoryList={categoryList}
       />
-      <PostList posts={edges} />
+      <PostList selectedCategory={selectedCategory} posts={edges} />
       <Footer />
     </Container>
   )

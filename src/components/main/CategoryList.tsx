@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
-type CategoryListProps = {
+export type CategoryListProps = {
   selectedCategory: string
   categoryList: {
     [key: string]: number
