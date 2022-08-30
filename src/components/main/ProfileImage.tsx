@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import profileImg from '../../images/profile.jpeg'
 import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image'
 
 const ProfileImageWrapper = styled(GatsbyImage)`

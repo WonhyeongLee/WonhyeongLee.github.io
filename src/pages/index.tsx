@@ -8,6 +8,7 @@ import CategoryList from 'components/main/CategoryList'
 import PostList from 'components/main/postList/PostList'
 import { PostListItemType } from 'types/PostItem.types'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import queryString, { ParsedQuery } from 'query-string'
 const CATEGORY_LIST = {
   All: 5,
   Web: 3,
@@ -15,6 +16,9 @@ const CATEGORY_LIST = {
 }
 
 type IndexPageProps = {
+  location: {
+    search: string
+  }
   data: {
     allMarkdownRemark: {
       edges: PostListItemType[]
@@ -32,6 +36,7 @@ const Container = styled.div`
   height: 100%;
 `
 const IndexPage: React.FC<IndexPageProps> = function ({
+  location: { search },
   data: {
     allMarkdownRemark: { edges },
     file: {
@@ -39,11 +44,19 @@ const IndexPage: React.FC<IndexPageProps> = function ({
     },
   },
 }) {
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+  const selectedCategory: string =
+    typeof parsed.category !== 'string' || !parsed.category
+      ? 'All'
+      : parsed.category
   return (
     <Container>
       <GlobalStyle />
       <Introduction profileImage={gatsbyImageData} />
-      <CategoryList selectedCategory="Web" categoryList={CATEGORY_LIST} />
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={CATEGORY_LIST}
+      />
       <PostList posts={edges} />
       <Footer />
     </Container>
