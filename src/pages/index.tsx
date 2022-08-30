@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import GlobalStyle from 'components/common/GlobalStyle'
 import Introduction from 'components/main/introduction/Introduction'
 import Footer from 'components/common/footer/Footer'
-import CategoryList from 'components/main/CategoryList'
+import CategoryList, { CategoryListProps } from 'components/main/CategoryList'
 import PostList from 'components/main/postList/PostList'
 import { PostListItemType } from 'types/PostItem.types'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
@@ -49,12 +49,13 @@ const IndexPage: React.FC<IndexPageProps> = function ({
     () =>
       edges.reduce(
         (
+          // categoryList 값 추출 후 reduce 함수로 객체에 추가
           list: CategoryListProps['categoryList'],
           {
             node: {
               frontmatter: { categories },
             },
-          }: PostType,
+          }: PostListItemType,
         ) => {
           categories.forEach(category => {
             if (list[category] === undefined) list[category] = 1
