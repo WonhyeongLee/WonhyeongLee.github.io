@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { PostListWrapper } from './PostList.style'
 import PostItem from 'components/main/postItem/PostItem'
 import { PostListItemType } from 'types/PostItem.types'

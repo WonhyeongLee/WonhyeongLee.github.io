@@ -1,11 +1,36 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Template from 'components/common/Template'
 
 type PostTemplateProps = {}
 
 const PostTemplate: React.FC<PostTemplateProps> = props => {
   console.log(props)
 
-  return <div>Post Template</div>
+  return <Template>Post Template</Template>
 }
 
 export default PostTemplate
+
+export const queryMarkdownDataBySlug = graphql`
+  query queryMarkdownDataBySlug($slug: String) {
+    allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
+      edges {
+        node {
+          html
+          frontmatter {
+            title
+            summary
+            date(formatString: "YYYY.MM.DD.")
+            categories
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
