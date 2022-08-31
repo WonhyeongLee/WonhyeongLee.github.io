@@ -84,14 +84,17 @@ const IndexPage: React.FC<IndexPageProps> = function ({
   )
 }
 
-export const MyQuery = graphql`
-  query MyQuery {
+export const getPostList = graphql`
+  query getPostList {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
     ) {
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
