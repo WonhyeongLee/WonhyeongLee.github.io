@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react'
+import { IGatsbyImageData } from 'gatsby-plugin-image'
+import queryString, { ParsedQuery } from 'query-string'
 import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/common/GlobalStyle'
@@ -7,8 +9,6 @@ import Footer from 'components/common/footer/Footer'
 import CategoryList, { CategoryListProps } from 'components/main/CategoryList'
 import PostList from 'components/main/postList/PostList'
 import { PostListItemType } from 'types/PostItem.types'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
-import queryString, { ParsedQuery } from 'query-string'
 
 type IndexPageProps = {
   location: {
