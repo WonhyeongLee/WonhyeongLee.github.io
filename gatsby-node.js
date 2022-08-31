@@ -29,6 +29,7 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
         components: path.resolve(__dirname, 'src/components'),
         utils: path.resolve(__dirname, 'src/utils'),
         hooks: path.resolve(__dirname, 'src/hooks'),
+        templates: path.resolve(__dirname, 'src/templates'),
       },
     },
   })
@@ -77,10 +78,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   // Import Post Template Component
-  // const PostTemplateComponent = path.resolve(
-  //   __dirname,
-  //   'src/templates/Post_template.tsx',
-  // )
+  const PostTemplateComponent = path.resolve(
+    __dirname,
+    'src/templates/Post_template.tsx',
+  )
 
   // Page Generating Function
   const generatePostPage = ({
@@ -90,7 +91,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }) => {
     const pageOptions = {
       path: slug,
-      component: require.resolve('./src/templates/Post_template.tsx'),
+      component: PostTemplateComponent,
+      // require.resolve('./src/templates/Post_template.tsx') 으로 해도됨
       context: { slug },
     }
 
