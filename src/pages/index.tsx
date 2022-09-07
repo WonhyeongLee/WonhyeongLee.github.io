@@ -2,7 +2,6 @@ import React, { useMemo } from 'react'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import queryString, { ParsedQuery } from 'query-string'
 import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
 
 import Introduction from 'components/main/introduction/Introduction'
 
