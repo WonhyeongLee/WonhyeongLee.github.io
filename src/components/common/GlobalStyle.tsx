@@ -2,7 +2,6 @@ import { css, Global } from '@emotion/react'
 import React from 'react'
 const defaultStyle = css`
   * {
-    font-size: 32px;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
