@@ -4,19 +4,19 @@ export const Background = styled.div`
   width: 100%;
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   color: #ffffff;
+  margin-top: 50px;
 `
 export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: flex-start;
   width: 768px;
   min-width: 380px;
-  height: 400px;
-  margin: 0 auto;
+  height: 240px;
+  margin: 60px auto;
   @media (max-width: 768px) {
     width: 100%;
-    height: 300px;
+    height: 240px;
     padding: 0 20px;
   }
 `
