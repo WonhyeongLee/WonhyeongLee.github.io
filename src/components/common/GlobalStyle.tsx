@@ -20,6 +20,20 @@ const defaultStyle = css`
     text-decoration: none;
     cursor: pointer;
   }
+  input:focus {
+    outline: none;
+  }
+
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  ul,
+  li {
+    list-style: none;
+  }
 `
 
 const GlobalStyle: React.FC = () => {
