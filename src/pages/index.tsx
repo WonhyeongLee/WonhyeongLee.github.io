@@ -9,6 +9,7 @@ import CategoryList, { CategoryListProps } from 'components/main/CategoryList'
 import PostList from 'components/main/postList/PostList'
 import { PostListItemType } from 'types/PostItem.types'
 import Template from 'components/common/Template'
+import TopNav from 'components/common/navigation/TopNav'
 
 type IndexPageProps = {
   location: {
@@ -67,6 +68,7 @@ const IndexPage: React.FC<IndexPageProps> = function ({
   )
   return (
     <Template>
+      <TopNav />
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
