@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `원형도서관`,
+    title: `발전을 기록하는 공간`,
     description: `개인기록용 블로그`,
     author: `이원형`,
     siteUrl: `https://WonhyeongLee.github.io/`,
